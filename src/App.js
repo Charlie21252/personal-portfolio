@@ -15,7 +15,7 @@ function App() {
           <div className="social-buttons">
             <a href="https://github.com/Charlie21252" className="btn">GitHub</a>
             <a href="https://www.linkedin.com/in/charlie-hristov-873498324/" className="btn">LinkedIn</a>
-            <a href="/Charlie Hristov Resume.pdf" className="btn" target="_blank" rel="noopener noreferrer">Download my Resume (PDF)</a>
+            <a href="/Charlie Hristov Resume.pdf">Resume (PDF)</a>
           </div>
         </div>
       </header>
