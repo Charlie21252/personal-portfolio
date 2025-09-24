@@ -55,7 +55,7 @@ function App() {
               It processes podcast transcripts, indexes them for efficient retrieval, and allows users to ask natural-language 
               questions to get accurate, context-aware answers drawn directly from the podcasts content</p>
             <div className="links">
-              <a href="#">Demo</a>
+              <a href="https://github.com/Charlie21252/podcastpod-rag-chat/blob/main/README.md">Demo</a>
               <a href="https://github.com/Charlie21252/podcastpod-rag-chat">GitHub</a>
             </div>
           </div>
