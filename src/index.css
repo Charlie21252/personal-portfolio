@@ -69,9 +69,21 @@ header p {
   background: #b9b9ba;
 }
 
-.contact-links a:hover {
-  color: #1d295e;
+.social-buttons a[href$="Resume.pdf"] {
+  background: #ffffff;
+  color: #1239e8;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition: all 0.3s;
 }
+
+.social-buttons a[href$="Resume.pdf"]:hover {
+  background: #f0f0f0;
+  color: #0f1c56;
+}
+
+
 
 /* Footer */
 footer {
