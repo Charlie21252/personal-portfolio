@@ -25,12 +25,14 @@ function App() {
       <section className="about">
         <h2>About Me</h2>
         <p>
-          I’m a curious learner with a passion for exploring the possibilities of artificial intelligence and the 
-          ways it can shape the future. I love diving into new ideas, experimenting with emerging tools, and uncovering creative 
-          applications of AI. Beyond tech, I’m deeply interested in sports data, especially Major League Baseball. Whether it’s 
-          checking who hit a home run today, seeing who’s pitching, or keeping up with the latest leaderboards, 
-          I love looking at the numbers and finding the stories that they can tell.
-        </p>
+          I’m a passionate learner and a curious listener. 
+          I love diving into new ideas, experimenting with emerging tools, and uncovering creative applications of said emerging tech. Beyond tech, I’m 
+          deeply interested in sports data, especially Major League Baseball. Whether it’s checking who hit a home run today, seeing who’s pitching, or 
+          keeping up with the latest leaderboards, I love looking at the numbers and finding the stories that they can tell. I also am very passionate about 
+          psychology, ever since a young age I have been curious and amazed on how the human brain works. 
+          Ultimately, I hope to bring these interests together, technology, data, sports, and psychology to 
+          build meaningful, insight-driven solutions.
+          </p>
       </section>
       
 
