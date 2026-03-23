@@ -1,104 +1,141 @@
-import React from 'react';
-import './App.css';
+import React, { useEffect } from 'react';
+import './index.css';
 
-function App() {
+function useScrollAnimation() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.08 }
+    );
+    document.querySelectorAll('.animate').forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+}
+
+const projects = [
+  {
+    name: 'Homers Daily',
+    description:
+      'Full-stack MLB home run tracker with real-time stats, exit velocities, daily leaderboards, and projected starting pitchers.',
+    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'mlb_api'],
+    live: 'https://charlies-mlb-app.vercel.app/',
+    github: 'https://github.com/Charlie21252/mlb-app',
+  },
+  {
+    name: 'NBA Stats Dashboard',
+    description:
+      'Full-stack NBA stats app with live player data, interactive charts, and 3D visualizations.',
+    tech: ['Python', 'FastAPI', 'Uvicorn', 'nba_api', 'React', 'Vite', 'Tailwind CSS'],
+    live: 'https://nba-app-self.vercel.app/',
+    github: 'https://github.com/Charlie21252/nba-app',
+  },
+  {
+    name: 'Podcast RAG Chat',
+    description:
+      'RAG AI chat app that indexes podcast transcripts and answers natural-language questions with context-aware accuracy.',
+    tech: ['Python', 'LangChain', 'Ollama'],
+    demo: 'https://github.com/Charlie21252/podcastpod-rag-chat/blob/main/README.md',
+    github: 'https://github.com/Charlie21252/podcastpod-rag-chat',
+  },
+];
+
+const skills = [
+  'JavaScript', 'React', 'Python', 'Node.js', 'Express',
+  'MongoDB', 'FastAPI', 'REST APIs', 'LangChain', 'Ollama',
+  'Tailwind CSS', 'Git', 'HTML/CSS', 'Vercel',
+];
+
+export default function App() {
+  useScrollAnimation();
+
   return (
-    <div className="App">
-      {/* Header */}
-      <header>
-        <h1>Charlie Hristov</h1>
-        <p>Student at Iowa State University pursuing bachelors degree in CS</p>
-        <div className="header-contact">
-          <div className="email">
-            <span>charliehristov13@gmail.com</span>
-          </div>
-          <div className="social-buttons">
-            <a href="https://github.com/Charlie21252" className="btn">GitHub</a>
-            <a href="https://www.linkedin.com/in/charlie-hristov-873498324/" className="btn">LinkedIn</a>
-            <a href="/Charlie Hristov Resume.pdf">Resume (PDF)</a>
-          </div>
+    <div className="app">
+      <header className="hero">
+        <div className="hero-inner">
+          <p className="hero-label">Computer Science · Iowa State University</p>
+          <h1>Charlie Hristov</h1>
+<nav className="hero-links">
+            <a href="mailto:charliehristov13@gmail.com">charliehristov13@gmail.com</a>
+            <span aria-hidden="true" className="dot">·</span>
+            <a href="https://github.com/Charlie21252" target="_blank" rel="noreferrer">GitHub</a>
+            <span aria-hidden="true" className="dot">·</span>
+            <a href="https://www.linkedin.com/in/charlie-hristov-873498324/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <span aria-hidden="true" className="dot">·</span>
+            <a href="/Charlie Hristov Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+          </nav>
         </div>
       </header>
 
-
-      {/* About */}
-      <section className="about">
-        <h2>About Me</h2>
-        <p>
-          I’m a passionate learner and a curious listener. 
-          I love diving into new ideas, experimenting with emerging tools, and uncovering creative applications of said emerging tech. Beyond tech, I’m 
-          deeply interested in sports data, especially Major League Baseball. Whether it’s checking who hit a home run today, seeing who’s pitching, or 
-          keeping up with the latest leaderboards, I love looking at the numbers and finding the stories that they can tell. I also am very passionate about 
-          psychology, ever since a young age I have been curious and amazed on how the human brain works. 
-          Ultimately, I hope to bring these interests together, technology, data, sports, and psychology to 
-          build meaningful, insight-driven solutions.
+      <main className="main">
+        <section className="section animate">
+          <h2>About</h2>
+          <p>
+            I'm a CS student with a genuine curiosity for how things work — from
+            software systems to the human mind. I'm drawn to problems at the edge
+            of data, AI, and real-world application: things that have real numbers
+            behind them and real stories to tell.
           </p>
-      </section>
-      
+          <p>
+            Outside of code, I follow MLB closely — not just the games, but the
+            analytics behind them. Exit velocity, spin rate, launch angle. I find
+            the same satisfaction in sports data as I do in building systems:
+            patterns surface, stories emerge, something invisible becomes clear.
+            I hope to keep bringing these threads together.
+          </p>
+        </section>
 
-      {/* Projects */}
-      <section className="projects">
-        <h2>Projects</h2>
-        <div className="project-grid">
+        <section className="section animate">
+          <h2>Projects</h2>
+          <div className="project-grid">
+            {projects.map((p) => (
+              <article className="project-card" key={p.name}>
+                <h3>{p.name}</h3>
+                <p>{p.description}</p>
+                <div className="project-footer">
+                  <div className="tech-tags">
+                    {p.tech.map((t) => <span key={t}>{t}</span>)}
+                  </div>
+                  <div className="project-links">
+                    {p.live && (
+                      <a href={p.live} target="_blank" rel="noreferrer">Live ↗</a>
+                    )}
+                    {p.demo && (
+                      <a href={p.demo} target="_blank" rel="noreferrer">Demo ↗</a>
+                    )}
+                    {p.github && (
+                      <a href={p.github} target="_blank" rel="noreferrer">GitHub ↗</a>
+                    )}
+                  </div>
+                </div>
+              </article>
+            ))}
 
-          <div className="project">
-            <h3>Homers Daily</h3>
-            <p>full-stack app using React, Node.js, Express, and MongoDB Atlas to 
-              display real-time MLB home run data, player stats, exit velocities, distances, daily leaderboards, and 
-              daily projected starting pitchers.</p>
-            <div className="links">
-              <a href="https://charlies-mlb-app.vercel.app/">Live</a>
-              <a href="https://github.com/Charlie21252/mlb-app">GitHub</a>
-            </div>
+            <article className="project-card project-wip">
+              <span className="wip-badge">Active</span>
+              <h3>In Progress</h3>
+              <p>
+                Extending Homers Daily with AI-powered insights and refining
+                the Podcast RAG pipeline for better retrieval accuracy.
+              </p>
+            </article>
           </div>
+        </section>
 
-          <div className="project">
-            <h3>Podcast RAG Chat</h3>
-            <p>A Retrieval-Augmented Generation (RAG) AI chat application built with Python, LangChain, and Ollama. 
-              It processes podcast transcripts, indexes them for efficient retrieval, and allows users to ask natural-language 
-              questions to get accurate, context-aware answers drawn directly from the podcasts content</p>
-            <div className="links">
-              <a href="https://github.com/Charlie21252/podcastpod-rag-chat/blob/main/README.md">Demo</a>
-              <a href="https://github.com/Charlie21252/podcastpod-rag-chat">GitHub</a>
-            </div>
+        <section className="section animate">
+          <h2>Skills</h2>
+          <div className="skills-grid">
+            {skills.map((s) => <span key={s}>{s}</span>)}
           </div>
+        </section>
+      </main>
 
-          <div className="project">
-            <h3>My Next Project</h3>
-            <p>Im continuously working to better the podcast RAG app along with potentially adding AI insights to my
-              homers daily app.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Skills */}
-      <section className="skills">
-        <h2>Skills</h2>
-        <div className="skill-list">
-          <span>JavaScript</span>
-          <span>React</span>
-          <span>Python</span>
-          <span>Node.js</span>
-          <span>Git</span>
-          <span>HTML/CSS</span>
-          <span>Express</span>
-          <span>MongoDB</span>
-          <span>REST APIs</span>
-          <span>Render</span>
-          <span>Vercel</span>
-          <span>Ollama</span>
-          <span>LangChain</span>
-        </div>
-      </section>
-
-      {/* Footer */}
       <footer>
-        <p>&copy; 2025 Charlie Hristov</p>
+        <p>Charlie Hristov · {new Date().getFullYear()}</p>
       </footer>
     </div>
   );
 }
-
-export default App;
