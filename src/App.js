@@ -34,6 +34,14 @@ const projects = [
     github: 'https://github.com/Charlie21252/nba-app',
   },
   {
+    name: 'Comedic Term Generator',
+    description:
+      'AI-powered comedy term generator fine-tuned to Gen Z humor, convienently accessible for on the fly laughs.',
+    tech: ['Typescript', 'React', 'Anthropic API', 'Node.js', 'Tailwind CSS'],
+    live: 'https://comedicterm.com/',
+    github: 'https://github.com/Charlie21252/Comedic-Term-Generator',
+  },
+  {
     name: 'Podcast RAG Chat',
     description:
       'RAG AI chat app that indexes podcast transcripts and answers natural-language questions with context-aware accuracy.',

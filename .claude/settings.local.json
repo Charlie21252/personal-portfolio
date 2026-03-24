@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(update-config)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"systemMessage\": \"Session complete. Review the conversation and update memory/ files (user.md, preferences.md, decisions.md, people.md) if anything significant was learned.\"}'",
+            "statusMessage": "Updating memory..."
+          }
+        ]
+      }
+    ]
+  }
+}
