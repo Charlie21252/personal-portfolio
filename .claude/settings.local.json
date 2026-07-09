@@ -1,7 +1,25 @@
 {
   "permissions": {
     "allow": [
-      "Skill(update-config)"
+      "Skill(update-config)",
+      "Bash(npm ls *)",
+      "Bash(npm install *)",
+      "Bash(tail -n 40 /tmp/cra.log)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_resize",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_run_code_unsafe",
+      "mcp__playwright__browser_tabs",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/favicon-ch.png)",
+      "Bash(python3 -c ' *)",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_snapshot",
+      "Bash(npm start *)",
+      "Read(//tmp/**)",
+      "Bash(curl *)",
+      "mcp__playwright__browser_hover",
+      "Bash(git add *)"
     ]
   },
   "hooks": {
