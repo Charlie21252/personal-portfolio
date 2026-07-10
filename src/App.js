@@ -4,16 +4,6 @@ import './index.css';
 
 const projects = [
   {
-    name: 'Oracle',
-    description:
-      'Real-time OSINT dashboard mapping live flights, earthquakes, wildfires, weather alerts, CCTV feeds, shipping chokepoints, satellites, and conflict zones on an interactive globe.',
-    tech: ['TypeScript', 'React', 'Node.js', 'Express', 'MapLibre GL', 'Tailwind CSS'],
-    live: 'https://oracle-six-vert.vercel.app/',
-    github: 'https://github.com/Charlie21252/Oracle',
-    image: '/images/oracle.png',
-    logo: '/images/logos/oracle-icon.png',
-  },
-  {
     name: 'Homers Daily',
     description:
       'Full-stack MLB home run tracker with real-time stats, exit velocities, daily leaderboards, and projected starting pitchers.',
@@ -52,7 +42,36 @@ const projects = [
     github: 'https://github.com/Charlie21252/podcastpod-rag-chat',
     image: '/images/podcast-rag-chat.png',
   },
+  {
+    name: 'Oracle',
+    description:
+      'Real-time OSINT dashboard mapping live flights, earthquakes, wildfires, weather alerts, CCTV feeds, shipping chokepoints, satellites, and conflict zones on an interactive globe.',
+    tech: ['TypeScript', 'React', 'Node.js', 'Express', 'MapLibre GL', 'Tailwind CSS'],
+    live: 'https://oracle-six-vert.vercel.app/',
+    github: 'https://github.com/Charlie21252/Oracle',
+    image: '/images/oracle.png',
+    logo: '/images/logos/oracle-icon.png',
+  },
 ];
+
+function EmailLink() {
+  const email = 'charliehristov13@gmail.com';
+  const [revealed, setRevealed] = useState(false);
+
+  return (
+    <a
+      href={`mailto:${email}`}
+      onClick={(e) => {
+        if (!revealed) {
+          e.preventDefault();
+          setRevealed(true);
+        }
+      }}
+    >
+      {revealed ? email : 'Email'}
+    </a>
+  );
+}
 
 function GithubIcon() {
   return (
@@ -159,7 +178,7 @@ export default function App() {
             <h1>Charlie Hristov</h1>
             <p className="hero-label hero-school">Iowa State University</p>
             <nav className="hero-links">
-              <a href="mailto:charliehristov13@gmail.com">Email</a>
+              <EmailLink />
               <span aria-hidden="true" className="dot">·</span>
               <a href="https://github.com/Charlie21252" target="_blank" rel="noreferrer">GitHub</a>
               <span aria-hidden="true" className="dot">·</span>
@@ -206,15 +225,6 @@ export default function App() {
                   </div>
                 </article>
               ))}
-
-              <article className="project-card project-wip">
-                <span className="wip-badge">Active</span>
-                <h3>In Progress</h3>
-                <p>
-                  Extending Homers Daily with AI-powered insights and refining
-                  the Podcast RAG pipeline for better retrieval accuracy.
-                </p>
-              </article>
             </div>
           </div>
         </div>
