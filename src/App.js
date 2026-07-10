@@ -4,6 +4,16 @@ import './index.css';
 
 const projects = [
   {
+    name: 'Oracle',
+    description:
+      'Real-time OSINT dashboard mapping live flights, earthquakes, wildfires, weather alerts, CCTV feeds, shipping chokepoints, satellites, and conflict zones on an interactive globe.',
+    tech: ['TypeScript', 'React', 'Node.js', 'Express', 'MapLibre GL', 'Tailwind CSS'],
+    live: 'https://oracle-six-vert.vercel.app/',
+    github: 'https://github.com/Charlie21252/Oracle',
+    image: '/images/oracle.png',
+    logo: '/images/logos/oracle-icon.png',
+  },
+  {
     name: 'Homers Daily',
     description:
       'Full-stack MLB home run tracker with real-time stats, exit velocities, daily leaderboards, and projected starting pitchers.',
